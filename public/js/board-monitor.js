@@ -7,7 +7,7 @@ var t = TrelloPowerUp.iframe();
 Promise.all([
   t.cards('id'),
   t.lists('id'),
-  t.members('id', 'fullName', 'username')
+//   t.members('id', 'fullName', 'username')
 ])
   .then(function(data) {
     var cards = data[0];
@@ -17,13 +17,13 @@ Promise.all([
     // Update the display
     document.getElementById('totalCards').textContent = cards.length;
     document.getElementById('totalLists').textContent = lists.length;
-    document.getElementById('boardMembers').textContent = members.length;
+    // document.getElementById('boardMembers').textContent = members.length;
   })
   .catch(function(error) {
     console.error('Error fetching board data:', error);
     document.getElementById('totalCards').textContent = 'Error';
     document.getElementById('totalLists').textContent = 'Error';
-    document.getElementById('boardMembers').textContent = 'Error';
+    // document.getElementById('boardMembers').textContent = 'Error';
   });
 
 // Resize the modal to fit content
