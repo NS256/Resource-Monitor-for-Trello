@@ -1,0 +1,20 @@
+{
+    "name": "resource-monitor-power-up",
+    "version": "1.0.0",
+    "description": "A Trello Power-Up for monitoring resources",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "node server.js"
+    },
+    "keywords": [
+        "trello",
+        "power-up"
+    ],
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1"
+    }
+}

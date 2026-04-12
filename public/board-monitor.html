@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Resource Monitor</title>
+    <!-- Trello Power-Up styles -->
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.min.css" />
+    <style>
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        padding: 20px;
+      }
+      #content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #0079bf;
+        margin-bottom: 20px;
+      }
+      .resource-container {
+        background: #f8f9fa;
+        border-radius: 4px;
+        padding: 20px;
+        margin-top: 20px;
+      }
+      .resource-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .info-card {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 4px;
+        padding: 15px;
+      }
+      .info-card label {
+        font-weight: 600;
+        color: #5e6c84;
+        display: block;
+        margin-bottom: 5px;
+      }
+      .info-card span {
+        color: #0079bf;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Resource Monitor</h1>
+      <div class="resource-container">
+        <p>Welcome to the Resource Monitor for this board.</p>
+        <div class="resource-info">
+          <div class="info-card">
+            <label>Total Cards</label>
+            <span id="totalCards">-</span>
+          </div>
+          <div class="info-card">
+            <label>Total Lists</label>
+            <span id="totalLists">-</span>
+          </div>
+          <div class="info-card">
+            <label>Board Members</label>
+            <span id="boardMembers">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trello Power-Up client library -->
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <!-- Board monitor functionality -->
+    <script src="./js/board-monitor.js"></script>
+  </body>
+</html>
