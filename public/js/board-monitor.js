@@ -31,14 +31,16 @@ Promise.all([
 
     // Authorize and fetch board limits
     return restAPI.isAuthorized().then(function(isAuthorized) {
-        console.log('getting stuff');
+        // Confirmed via comment code enters this block
+        console.log('Comment 1');
       if (!isAuthorized) {
         return restAPI.authorize({ scope: 'read' });
       }
     }).then(function() {
+        console.log('Comment 2');
       return restAPI.getToken();
     }).then(function(token) {
-        
+        console.log('Comment 3');
       return fetch(
         'https://api.trello.com/1/boards/' + board.id + '/?fields=limits' +
         '&key=df57a286a5a1027ff8a5e8f94ceeb036&token=' + token
