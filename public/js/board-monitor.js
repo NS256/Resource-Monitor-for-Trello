@@ -37,6 +37,7 @@ Promise.all([
     }).then(function() {
       return restAPI.getToken();
     }).then(function(token) {
+        console.log('getting stuff');
       return fetch(
         'https://api.trello.com/1/boards/' + board.id + '/?fields=limits' +
         '&key=df57a286a5a1027ff8a5e8f94ceeb036&token=' + token
