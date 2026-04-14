@@ -32,15 +32,19 @@ Promise.all([
     // Authorize and fetch board limits
     return restAPI.isAuthorized().then(function(isAuthorized) {
         // Confirmed via comment code enters this block
-        console.log('Comment 1');
+        console.log('Comment 1 - isAuthorized:', isAuthorized);
       if (!isAuthorized) {
+        console.log('Not authorized, requesting authorization...');
         return restAPI.authorize({ scope: 'read' });
+      } else {
+        console.log('Already authorized, skipping authorization step');
+        return Promise.resolve();
       }
     }).then(function() {
         console.log('Comment 2');
       return restAPI.getToken();
     }).then(function(token) {
-        console.log('Comment 3');
+        console.log('Comment 3 - token:', token);
       return fetch(
         'https://api.trello.com/1/boards/' + board.id + '/?fields=limits' +
         '&key=df57a286a5a1027ff8a5e8f94ceeb036&token=' + token
@@ -50,6 +54,9 @@ Promise.all([
         console.log('Board Limits:', boardData);
         document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
       });
+    }).catch(function(authError) {
+      console.error('Authorization or API error:', authError);
+      document.getElementById('limitsLog').textContent = 'Error: ' + authError.message;
     });
   })
   .catch(function(error) {
