@@ -1,3 +1,5 @@
+import {consoleLog, consoleError} from 'utils.js';
+
 /* global TrelloPowerUp */
 
 // Get the TrelloPowerUp instance for this iframe
@@ -21,9 +23,9 @@ Promise.all([
     var board = data[2];
 
     // Log to console
-    console.log('Cards:', cards);
-    console.log('Lists:', lists);
-    console.log('Board ID:', board.id);
+    consoleLog('Cards: ' + JSON.stringify(cards));
+    consoleLog('Lists: ' + JSON.stringify(lists));
+    consoleLog('Board ID: ' + board.id);
 
     // Update the display
     document.getElementById('totalCards').textContent = cards.length;
@@ -32,39 +34,34 @@ Promise.all([
     // Authorize and fetch board limits
     return restAPI.isAuthorized().then(function(isAuthorized) {
         // Confirmed via comment code enters this block
-        console.log('Comment 1 - isAuthorized:', isAuthorized);
       if (!isAuthorized) {
-        console.log('Not authorized, requesting authorization...');
-        console.log('An authorization popup should appear - please complete it');
+        consoleLog('Not authorized, requesting authorization...');
         return restAPI.authorize({ scope: 'read' }).then(function(result) {
-          console.log('Authorization completed, result:', result);
+          consoleLog('Authorization completed, result: ' + JSON.stringify(result));
           return result;
         });
       } else {
-        console.log('Already authorized, skipping authorization step');
         return Promise.resolve();
       }
     }).then(function() {
-        console.log('Comment 2');
       return restAPI.getToken();
     }).then(function(token) {
-        console.log('Comment 3 - token:', token);
       return fetch(
         'https://api.trello.com/1/boards/' + board.id + '/?fields=limits' +
         '&key=df57a286a5a1027ff8a5e8f94ceeb036&token=' + token
       ).then(function(res) {
         return res.json();
       }).then(function(boardData) {
-        console.log('Board Limits:', boardData);
+        consoleLog('Board Limits: ' + JSON.stringify(boardData));
         document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
       });
     }).catch(function(authError) {
-      console.error('Authorization or API error:', authError);
+      consoleError('Authorization or API error: ' + authError.message);
       document.getElementById('limitsLog').textContent = 'Error: ' + authError.message;
     });
   })
   .catch(function(error) {
-    console.error('Error fetching board data:', error);
+    consoleError('Error fetching board data: ' + error.message);
     document.getElementById('totalCards').textContent = 'Error';
     document.getElementById('totalLists').textContent = 'Error';
     document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
