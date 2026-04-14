@@ -1,4 +1,4 @@
-import {consoleLog, consoleError} from 'utils.js';
+
 
 /* global TrelloPowerUp */
 
