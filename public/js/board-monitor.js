@@ -14,6 +14,10 @@ Promise.all([
     var lists = data[1];
     var members = data[2];
 
+    // Log to console
+    console.log('Cards:', cards);
+    console.log('Lists:', lists);
+
     // Update the display
     document.getElementById('totalCards').textContent = cards.length;
     document.getElementById('totalLists').textContent = lists.length;
