@@ -1,7 +1,10 @@
 /* global TrelloPowerUp */
 
 // Get the TrelloPowerUp instance for this iframe
-var t = TrelloPowerUp.iframe();
+var t = TrelloPowerUp.iframe({
+  appKey: "df57a286a5a1027ff8a5e8f94ceeb036",
+  appName: "Resource Monitor",
+});
 
 // Get the REST API instance (handles authentication automatically)
 var restAPI = t.getRestApi();
