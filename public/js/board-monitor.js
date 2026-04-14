@@ -6,35 +6,27 @@ var t = TrelloPowerUp.iframe({
   appName: "Resource Monitor",
 });
 
-// Get the REST API instance (handles authentication automatically)
-var restAPI = t.getRestApi();
-
 // Fetch and display board resource information
 Promise.all([
   t.cards('id'),
   t.lists('id'),
-  t.getContext().board
+  t.board('id', 'limits')
 //   t.members('id', 'fullName', 'username')
 ])
   .then(function(data) {
     var cards = data[0];
     var lists = data[1];
-    var boardID = data[2];
+    var board = data[2];
 
     // Log to console
     console.log('Cards:', cards);
     console.log('Lists:', lists);
+    console.log('Board:', board);
 
-    // Make authenticated API call using Power-Up REST API
-    restAPI.get('/boards/' + boardID, { fields: 'limits' })
-      .then(function(boardData) {
-        console.log('Board Limits:', boardData);
-        document.getElementById('limitsLog').textContent = JSON.stringify(boardData, null, 2);
-      })
-      .catch(function(error) {
-        console.error('Error fetching board limits:', error);
-        document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
-      });
+    // Display board limits
+    if (board.limits) {
+      document.getElementById('limitsLog').textContent = JSON.stringify(board.limits, null, 2);
+    }
 
     // Update the display
     document.getElementById('totalCards').textContent = cards.length;
