@@ -35,7 +35,11 @@ Promise.all([
         console.log('Comment 1 - isAuthorized:', isAuthorized);
       if (!isAuthorized) {
         console.log('Not authorized, requesting authorization...');
-        return restAPI.authorize({ scope: 'read' });
+        console.log('An authorization popup should appear - please complete it');
+        return restAPI.authorize({ scope: 'read' }).then(function(result) {
+          console.log('Authorization completed, result:', result);
+          return result;
+        });
       } else {
         console.log('Already authorized, skipping authorization step');
         return Promise.resolve();
