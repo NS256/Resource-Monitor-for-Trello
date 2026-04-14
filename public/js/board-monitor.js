@@ -6,21 +6,20 @@ var t = TrelloPowerUp.iframe();
 // Fetch and display board resource information
 Promise.all([
   t.cards('id'),
-  t.lists('id'),
-  t.board('id')
+  t.lists('id')
 //   t.members('id', 'fullName', 'username')
 ])
   .then(function(data) {
     var cards = data[0];
     var lists = data[1];
-    var boardID = data[2];
+    var boardID = t.getContext().board;
 
     // Log to console
     console.log('Cards:', cards);
     console.log('Lists:', lists);
 
     fetch(`https://api.trello.com/1/boards/${boardID}/?fields=limits`).then( res => res.json).then(
-        document.getElementById('limitsLog').textContent = data
+        document.getElementById('limitsLog').textContent = JSON.stringify(data)
     );
 
     // Update the display
