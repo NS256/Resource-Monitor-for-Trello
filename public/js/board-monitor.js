@@ -54,6 +54,7 @@ Promise.all([
       }).then(function(boardData) {
         consoleLog('Board Limits: ' + JSON.stringify(boardData));
         document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
+        renderLimitsList(boardData.limits);
       });
     }).catch(function(authError) {
       consoleError('Authorization or API error: ' + authError.message);
