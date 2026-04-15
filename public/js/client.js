@@ -9,7 +9,7 @@ TrelloPowerUp.initialize({
         return t.modal({
           title: 'Resource Monitor',
           url: 'board-monitor.html',
-          fullscreen: false,
+          fullscreen: true,
         });
       },
     }];
