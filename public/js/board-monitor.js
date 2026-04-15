@@ -67,7 +67,29 @@ Promise.all([
     document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
   });
 
+
+const renderLimitsList = (limitsJSON) => {
+    //Find the div on the DOM
+    const LIMITSCONTAINER = document.querySelector('.board-limits-container');
+
+    //Create the parent UL element
+    try {
+        let limitsList = createLimitsList(limitsJSON, 'board-limits-list');
+        //add limits list to the parent container
+        LIMITSCONTAINER.appendChild(limitsList);
+    } catch (e) {
+        consoleError(`Failed to create board limits list: ${e}`);
+
+        //create an output to show there's been an error
+        let errorOutput = document.createElement('span');
+        errorOutput.textContent = "Whoops! Looks like we couldn't fetch the limits for your board right now.\nTry again later!";
+        LIMITSCONTAINER.appendChild(errorOutput);
+    }
+    
+    
+}
+
 // Resize the modal to fit content
 t.render(function() {
-  return t.sizeTo('#content');
+  return t.sizeTo(document.body);
 });
