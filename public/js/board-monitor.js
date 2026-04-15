@@ -32,6 +32,11 @@ Promise.all([
     document.getElementById('totalLists').textContent = lists.length;
 
     // Authorize and fetch board limits
+    /**
+     * LIMITS JSON FILE DOESN'T INCLUDE COLLABORATORS WOULD BE GOOD TO INCLUDE THIS WHERE POSSIBLE JUST FOR CONTEXT
+     */
+
+
     return restAPI.isAuthorized().then(function(isAuthorized) {
         // Confirmed via comment code enters this block
       if (!isAuthorized) {

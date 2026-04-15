@@ -12,6 +12,9 @@ const createLimitsList = (limitsJSON, listClassName) => {
 
     /**
      * Go through each key provided in the limits list and create an item in the list for it
+     * 
+     * IMPORTANT:
+     * Even though the specific limits that generally cause issues are the same, these aren't hard coded to be called out in this list to future proof and cover any potential limits that could be implemented in future.
      */
     const KEYSLIST = Object.keys(limitsJSON)
     for (let i=0; i < KEYSLIST.length; i++){
