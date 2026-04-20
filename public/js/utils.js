@@ -18,10 +18,23 @@ const createLimitsList = (limitsJSON, listClassName) => {
      */
     const KEYSLIST = Object.keys(limitsJSON)
     for (let i=0; i < KEYSLIST.length; i++){
+        //get status of the current limit
+        let limitOK = true;
+        const LIMITSKEYS = Object.keys(limitsJSON[KEYSLIST][j]);
+        for (let j=0; j < LIMITSKEYS.length; j++) {
+            if (limitsJSON[KEYSLIST][j].status !== "ok") {
+                limitOK = false;
+                break;
+            }
+        }
+
+        //creeate list item
         let listItem = document.createElement('li');
-        listItem.classList = `limits-list-item limit-key-${i}`;
-        listItem.textContent = KEYSLIST[i];
+        listItem.classList = `limits-list-item limit-key-${i} ${(limitOK) ? "limit-passed" : "limit-failed"}`;
+        listItem.textContent = `${(limitOK) ? "&#2714;" : "2718"} ${KEYSLIST[i]}`;
         limitsList.appendChild(listItem);
+
+
     }
 
     //return completed list
