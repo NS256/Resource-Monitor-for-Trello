@@ -22,7 +22,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
         let limitOK = true;
         const LIMITSKEYS = Object.keys(limitsJSON[KEYSLIST[i]]);
         for (let j=0; j < LIMITSKEYS.length; j++) {
-            if (limitsJSON[KEYSLIST][j].status !== "ok") {
+            if (limitsJSON[KEYSLIST][LIMITSKEYS[j]].status !== "ok") {
                 limitOK = false;
                 break;
             }
