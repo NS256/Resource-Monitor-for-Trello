@@ -46,7 +46,7 @@ const camelCaseToPlainText = (text) => {
     let textArray = text.split(/(?=[A-Z])/);
 
     for (let i = 0; i < textArray.length; i++){
-        textArray[i][0] = textArray[i][0].toUpperCase();
+        textArray[i] = textArray[i][0].toUpperCase() + textArray[i].substring(1);
     }
 
     return textArray.join(' ');
