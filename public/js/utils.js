@@ -20,7 +20,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
     for (let i=0; i < KEYSLIST.length; i++){
         //get status of the current limit
         let limitOK = true;
-        const LIMITSKEYS = Object.keys(limitsJSON[KEYSLIST][i]);
+        const LIMITSKEYS = Object.keys(limitsJSON[KEYSLIST[i]]);
         for (let j=0; j < LIMITSKEYS.length; j++) {
             if (limitsJSON[KEYSLIST][j].status !== "ok") {
                 limitOK = false;
