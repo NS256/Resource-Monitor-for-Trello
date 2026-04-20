@@ -31,7 +31,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
         //create list item
         let listItem = document.createElement('li');
         listItem.classList = `limits-list-item limit-key-${i} ${(limitOK) ? "limit-passed" : "limit-failed"}`;
-        listItem.innerHTML = `${(limitOK) ? "&#x2714;" : "&#x2718;"} ${KEYSLIST[i]}`;
+        listItem.innerHTML = `${(limitOK) ? "&#x2714;" : "&#x2718;"} ${camelCaseToPlainText(KEYSLIST[i])}`;
         limitsList.appendChild(listItem);
 
 
@@ -41,4 +41,13 @@ const createLimitsList = (limitsJSON, listClassName) => {
     return limitsList;
 }
 
+const camelCaseToPlainText = (text) => {
 
+    let textArray = text.split(/(?=[A-Z])/);
+
+    for (let i = 0; i < textArray.length; i++){
+        textArray[i][0] = textArray[i][0].toUpperCase();
+    }
+
+    return textArray.join(' ');
+}
