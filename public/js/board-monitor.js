@@ -97,5 +97,5 @@ const renderLimitsList = (limitsJSON) => {
 
 // Resize the modal to fit content
 t.render(function() {
-  return t.sizeTo('#content');
+  return t.sizeTo('body');
 });
