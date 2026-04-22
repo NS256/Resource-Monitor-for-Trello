@@ -28,8 +28,8 @@ Promise.all([
     consoleLog('Board ID: ' + board.id);
 
     // Update the display
-    document.getElementById('totalCards').textContent = cards.length;
-    document.getElementById('totalLists').textContent = lists.length;
+    // document.getElementById('totalCards').textContent = cards.length;
+    // document.getElementById('totalLists').textContent = lists.length;
 
     // Authorize and fetch board limits
     /**
@@ -68,8 +68,8 @@ Promise.all([
   })
   .catch(function(error) {
     consoleError('Error fetching board data: ' + error.message);
-    document.getElementById('totalCards').textContent = 'Error';
-    document.getElementById('totalLists').textContent = 'Error';
+    // document.getElementById('totalCards').textContent = 'Error';
+    // document.getElementById('totalLists').textContent = 'Error';
     document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
   });
 
