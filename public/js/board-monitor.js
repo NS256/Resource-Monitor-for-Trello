@@ -57,20 +57,20 @@ Promise.all([
       ).then(function(res) {
         return res.json();
       }).then(function(boardData) {
-        consoleLog('Board Limits: ' + JSON.stringify(boardData));
-        document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
+        // consoleLog('Board Limits: ' + JSON.stringify(boardData));
+        // document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
         renderLimitsList(boardData.limits);
       });
     }).catch(function(authError) {
       consoleError('Authorization or API error: ' + authError.message);
-      document.getElementById('limitsLog').textContent = 'Error: ' + authError.message;
+    //   document.getElementById('limitsLog').textContent = 'Error: ' + authError.message;
     });
   })
   .catch(function(error) {
     consoleError('Error fetching board data: ' + error.message);
     // document.getElementById('totalCards').textContent = 'Error';
     // document.getElementById('totalLists').textContent = 'Error';
-    document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
+    // document.getElementById('limitsLog').textContent = 'Error: ' + error.message;
   });
 
 
