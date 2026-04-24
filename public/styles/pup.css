@@ -4,6 +4,7 @@
 
 div.container {
     margin: 10px;
+    padding: 10px;
     border-color: var(--ds-border);
     border-width: 2px;
     border-style: solid;
@@ -11,3 +12,7 @@ div.container {
     background-color: var(--ds-background-neutral);
 }
 
+h1 {
+    text-align: center;
+    
+}
