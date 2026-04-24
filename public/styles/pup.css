@@ -1,0 +1,8 @@
+div.container {
+    border-color: var(--ds-border);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: var(--ds-background-neutral);
+}
+
