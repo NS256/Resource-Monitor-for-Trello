@@ -1,4 +1,9 @@
+#content {
+    min-height: 800px;
+}
+
 div.container {
+    margin: 10px;
     border-color: var(--ds-border);
     border-width: 2px;
     border-style: solid;
