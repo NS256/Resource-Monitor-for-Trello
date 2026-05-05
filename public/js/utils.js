@@ -35,7 +35,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
         limitsList.appendChild(listItem);
 
         t.render(function() {
-            return t.sizeTo('800');
+            return t.sizeTo('#content');
         });
     }
 
