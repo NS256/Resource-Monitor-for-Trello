@@ -32,9 +32,9 @@ footer div.website-callout {
 }
 
 .action-button {
-    background-color: var(--ds-link);
+    background-color: var(--ds-background-brand-bold);
 }
 
 .action-button:hover {
-    background-color: var(--ds-background-selected-hovered);
+    background-color: var(--ds-background-brand-bold-hovered);
 }
