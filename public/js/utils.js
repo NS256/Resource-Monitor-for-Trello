@@ -31,7 +31,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
         //create list item
         let listItem = document.createElement('li');
         listItem.classList = `limits-list-item limit-key-${i} ${(limitOK) ? "limit-passed" : "limit-failed"}`;
-        listItem.innerHTML = `${(limitOK) ? "&#x2714;" : "&#x2718;"} ${camelCaseToPlainText(KEYSLIST[i])}`;
+        listItem.innerHTML = `${checkOrCross(limitOK)} ${camelCaseToPlainText(KEYSLIST[i])}`;
         limitsList.appendChild(listItem);
 
 
@@ -50,4 +50,13 @@ const camelCaseToPlainText = (text) => {
     }
 
     return textArray.join(' ');
+}
+
+/**Return either a green check or a red cross depending on the value of the passed in  boolean*/
+const checkOrCross = (showCheck) => {
+    
+    let iconClass = (showCheck) ? "color.icon.accent.green" : "color.icon.accent.red";
+    let icon = (showCheck) ? "&#x2714;" : "&#x2718;";
+
+    return `<span className="${iconClass}">${icon}</span>`;
 }
