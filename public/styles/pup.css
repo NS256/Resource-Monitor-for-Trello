@@ -23,9 +23,9 @@ footer div.website-callout {
 }
 
 .green-checkmark {
-    color: var(--ds-icon-accent-green);
+    color: #216E4E;
 }
 
 .red-cross {
-    color: var(--ds-icon-accent-red);
+    color: #AE2A19;
 }
