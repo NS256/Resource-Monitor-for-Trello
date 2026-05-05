@@ -22,10 +22,10 @@ footer div.website-callout {
     cursor: pointer;
 }
 
-.check-or-cross .green-checkmark {
+.green-checkmark {
     color: var(--ds-icon-accent-green);
 }
 
-.check-or-cross .red-cross {
+.red-cross {
     color: var(--ds-icon-accent-red);
 }
