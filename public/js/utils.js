@@ -34,7 +34,9 @@ const createLimitsList = (limitsJSON, listClassName) => {
         listItem.innerHTML = `${checkOrCross(limitOK)} ${camelCaseToPlainText(KEYSLIST[i])}`;
         limitsList.appendChild(listItem);
 
-
+        t.render(function() {
+            return t.sizeTo('800');
+        });
     }
 
     //return completed list
