@@ -1,5 +1,5 @@
 #content {
-    min-height: 50vh;
+    min-height: 500px;
     overflow: scroll;
 }
 
@@ -29,4 +29,12 @@ footer div.website-callout {
 
 .red-cross {
     color: #AE2A19;
+}
+
+.action-button {
+    background-color: var(--ds-link);
+}
+
+.action-button:hover {
+    background-color: var(--ds-background-selected-hovered);
 }
