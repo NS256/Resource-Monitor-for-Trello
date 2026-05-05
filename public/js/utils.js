@@ -30,7 +30,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
 
         //create list item
         let listItem = document.createElement('li');
-        listItem.classList = `limits-list-item limit-key-${i} ${(limitOK) ? "limit-passed" : "limit-failed"}`;
+        listItem.className = `limits-list-item limit-key-${i} ${(limitOK) ? "limit-passed" : "limit-failed"}`;
         listItem.innerHTML = `${checkOrCross(limitOK)} ${camelCaseToPlainText(KEYSLIST[i])}`;
         limitsList.appendChild(listItem);
 
@@ -58,5 +58,5 @@ const checkOrCross = (showCheck) => {
     let iconClass = (showCheck) ? "green-checkmark" : "red-cross";
     let icon = (showCheck) ? "&#x2714;" : "&#x2718;";
 
-    return `<span className=" check-or-cross ${iconClass}">${icon}</span>`;
+    return `<span class=" check-or-cross ${iconClass}">${icon}</span>`;
 }
