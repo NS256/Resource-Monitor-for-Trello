@@ -1,6 +1,6 @@
 #content {
-    /* min-height: 800px; */
-    overflow: visible;
+    min-height: 50vh;
+    overflow: scroll;
 }
 
 div.container {
