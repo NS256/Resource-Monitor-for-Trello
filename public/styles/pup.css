@@ -33,6 +33,8 @@ footer div.website-callout {
 
 .action-button {
     background-color: var(--ds-background-brand-bold);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .action-button:hover {
