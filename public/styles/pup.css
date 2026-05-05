@@ -1,6 +1,7 @@
-/* #content {
-    min-height: 800px;
-} */
+#content {
+    /* min-height: 800px; */
+    overflow: visible;
+}
 
 div.container {
     margin: 10px;
