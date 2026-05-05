@@ -55,8 +55,8 @@ const camelCaseToPlainText = (text) => {
 /**Return either a green check or a red cross depending on the value of the passed in  boolean*/
 const checkOrCross = (showCheck) => {
     
-    let iconClass = (showCheck) ? "color.icon.accent.green" : "color.icon.accent.red";
+    let iconClass = (showCheck) ? "green-checkmark" : "red-cross";
     let icon = (showCheck) ? "&#x2714;" : "&#x2718;";
 
-    return `<span className="${iconClass}">${icon}</span>`;
+    return `<span className=" check-or-cross ${iconClass}">${icon}</span>`;
 }
