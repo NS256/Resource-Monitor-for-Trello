@@ -60,3 +60,17 @@ const checkOrCross = (showCheck) => {
 
     return `<span class=" check-or-cross ${iconClass}">${icon}</span>`;
 }
+
+const getLimitsAdvice = (reason) => {
+    if (!limitsAdvice[reason]) {
+        throw new Error(`Unable to find limits advice matching "${reason}"`); 
+    }
+
+    return limitsAdvice[reason];
+}
+
+const limitsAdvice = {
+    "tooManyCards": "Try reducing the number of cards on your board, you can do this by creating a new board and moving some of your cards/lists to that board.",
+    "tooManyLists": "Try reducing the number of lists on your board, you can do this by creating a new board and moving some of your lists to that board.",
+    "archivedCards": "Your board has a high number of archived cards, "
+}
