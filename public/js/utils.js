@@ -1,6 +1,20 @@
 const consoleLog = logString => console.log(`RESOURCE_MONITOR: ${logString}`);
 const consoleError = errorString => console.error(`RESOURCE_MONITOR: ${errorString}`);
 
+const authorizePUP = () => {
+    return restAPI.isAuthorized().then(function(isAuthorized) {
+        // Confirmed via comment code enters this block
+      if (!isAuthorized) {
+        consoleLog('Not authorized, requesting authorization...');
+        return restAPI.authorize({ scope: 'read' }).then(function(result) {
+          consoleLog('Authorization completed, result: ' + JSON.stringify(result));
+          return result;
+        });
+      } else {
+        return Promise.resolve();
+      }
+    })
+}
 
 const createLimitsList = (limitsJSON, listClassName) => {
     if (!limitsJSON || typeof limitsJSON !== 'object') {

@@ -1,0 +1,26 @@
+<!--Page to be opened on Power-Up enable to get authorization for the PUP on the board-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Resource Monitor</title>
+    <!-- Trello Power-Up styles -->
+    <link rel="stylesheet" href="https://p.trellocdn.com/power-up.css" />
+    <link rel="stylesheet" href="styles/pup.css" />
+    <link rel="stylesheet" href="styles/board-monitor.css" />
+  </head>
+  <body>
+    <div id="content">
+      
+    </div>
+
+    <!-- Trello Power-Up client library -->
+    <script src="https://p.trellocdn.com/power-up.min.js"></script>
+    <!-- Board monitor functionality -->
+    
+    <script src="./js/utils.js"></script>
+    <script defer>
+        authorizePUP();
+    </script>
+  </body>
+</html>
