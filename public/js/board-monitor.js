@@ -59,6 +59,7 @@ Promise.all([
       }).then(function(boardData) {
         // consoleLog('Board Limits: ' + JSON.stringify(boardData));
         // document.getElementById('limitsLog').textContent = JSON.stringify(boardData.limits, null, 2);
+        
         renderLimitsList(boardData.limits);
       });
     }).catch(function(authError) {
@@ -77,6 +78,8 @@ Promise.all([
 const renderLimitsList = (limitsJSON) => {
     //Find the div on the DOM
     const LIMITSCONTAINER = document.querySelector('.board-limits-container');
+
+    LIMITSCONTAINER.removeChild(LIMITSCONTAINER.children[0]);
 
     //Create the parent UL element
     try {
