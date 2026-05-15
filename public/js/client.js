@@ -1,5 +1,8 @@
 /* global TrelloPowerUp */
 
+const WHITE_ICON = 'https://your-cdn.com/icon-white.svg';
+const BLACK_ICON = 'https://your-cdn.com/icon-black.svg';
+
 // Initialize the Power-Up
 TrelloPowerUp.initialize({
   'board-buttons': function(t, options) {
@@ -7,6 +10,7 @@ TrelloPowerUp.initialize({
       text: 'Resource Monitor',
       callback: function(t) {
         return t.modal({
+          icon: { dark: WHITE_ICON, light: BLACK_ICON },
           title: 'Resource Monitor for Trello',
           url: 'board-monitor.html',
           fullscreen: false,
