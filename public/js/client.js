@@ -1,7 +1,7 @@
 /* global TrelloPowerUp */
 
-const WHITE_ICON = 'https://your-cdn.com/icon-white.svg';
-const BLACK_ICON = 'https://your-cdn.com/icon-black.svg';
+const WHITE_ICON = 'https://resource-monitor-for-trello.vercel.app/assets/Logo-Light.svg';
+const BLACK_ICON = 'https://resource-monitor-for-trello.vercel.app/assets/Logo-Dark.svg';
 
 // Initialize the Power-Up
 TrelloPowerUp.initialize({
