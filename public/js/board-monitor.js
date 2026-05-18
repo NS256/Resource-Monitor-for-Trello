@@ -22,15 +22,6 @@ Promise.all([
     var lists = data[1];
     var board = data[2];
 
-    // Log to console
-    consoleLog('Cards: ' + JSON.stringify(cards));
-    consoleLog('Lists: ' + JSON.stringify(lists));
-    consoleLog('Board ID: ' + board.id);
-
-    // Update the display
-    // document.getElementById('totalCards').textContent = cards.length;
-    // document.getElementById('totalLists').textContent = lists.length;
-
     // Authorize and fetch board limits
     /**
      * LIMITS JSON FILE DOESN'T INCLUDE COLLABORATORS WOULD BE GOOD TO INCLUDE THIS WHERE POSSIBLE JUST FOR CONTEXT
@@ -42,7 +33,7 @@ Promise.all([
       if (!isAuthorized) {
         consoleLog('Not authorized, requesting authorization...');
         return restAPI.authorize({ scope: 'read' }).then(function(result) {
-          consoleLog('Authorization completed, result: ' + JSON.stringify(result));
+          consoleLog('Authorization completed, result'/* + JSON.stringify(result)*/);
           return result;
         });
       } else {
