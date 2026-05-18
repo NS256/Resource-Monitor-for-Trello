@@ -7,10 +7,10 @@ const BLACK_ICON = 'https://resource-monitor-for-trello.vercel.app/assets/Logo-D
 TrelloPowerUp.initialize({
   'board-buttons': function(t, options) {
     return [{
+      icon: { dark: WHITE_ICON, light: BLACK_ICON },
       text: 'Resource Monitor',
       callback: function(t) {
         return t.modal({
-          icon: { dark: WHITE_ICON, light: BLACK_ICON },
           title: 'Resource Monitor for Trello',
           url: 'board-monitor.html',
           fullscreen: false,
