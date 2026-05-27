@@ -21,8 +21,18 @@ const createLimitsList = (limitsJSON, listClassName) => {
         throw new Error('limitsJSON parameter is required and must be an object');
     }
 
+    //DOM element for outputting the board limits
     let limitsList = document.createElement('ul');
     limitsList.classList = `limits-list-container ${listClassName}`;
+
+    //array to track all the limits that have been reached or warned on teh board.
+    let limitsReached = [];
+
+    /**planning for next step
+     * Create an array to capture each limit that's either met or warning
+     * Array of objects with name and status
+     * 
+     */
 
     /**
      * Go through each key provided in the limits list and create an item in the list for it
@@ -38,6 +48,11 @@ const createLimitsList = (limitsJSON, listClassName) => {
         for (let j=0; j < LIMITSKEYS.length; j++) {
             if (limitsJSON[KEYSLIST[i]][LIMITSKEYS[j]].status !== "ok") {
                 limitOK = false;
+                limitsReached.push({
+                    name: `${limitsJSON[KEYSLIST[i]]}`,
+                    scope: LIMITSKEYS[j],
+                    warningType: limitsJSON[KEYSLIST[i]][LIMITSKEYS[j]].status
+                });
                 break;
             }
         }
@@ -51,6 +66,7 @@ const createLimitsList = (limitsJSON, listClassName) => {
         t.sizeTo('#content');
     }
 
+    console.log(limitsReached);
     //return completed list
     return limitsList;
 }
