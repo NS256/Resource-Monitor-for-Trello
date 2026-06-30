@@ -1,0 +1,44 @@
+#content {
+    /* min-height: 500px; */
+    overflow: scroll;
+}
+
+div.container {
+    margin: 10px;
+    padding: 10px;
+    border-color: var(--ds-border);
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: var(--ds-background-neutral);
+}
+
+h1 {
+    text-align: center;
+
+}
+
+footer div.website-callout {
+
+    cursor: pointer;
+}
+
+.green-checkmark {
+    color: #216E4E;
+}
+
+.red-cross {
+    color: #AE2A19;
+}
+
+.action-button {
+    background-color: var(--ds-background-brand-bold);
+    color: var(--ds-text-inverse);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.action-button:hover {
+    background-color: var(--ds-background-brand-bold-hovered);
+}
+
